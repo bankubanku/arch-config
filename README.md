@@ -1,3 +1,4 @@
 # wm-config
-My window manager's configuration
+My window manager's configuration 
+
 not finished yet tho
