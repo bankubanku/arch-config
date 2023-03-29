@@ -90,8 +90,8 @@ keys = [
     #Key([mod], 'o', lazy.run_extension(extension.WindowsList())),
 ]
 
-groups = [Group('1'), Group('2'), Group('3'), Group('4'), Group(
-    '5'), Group('6'), Group('7'), Group('8')]
+groups = [Group('1', label=""), Group('2', label=""), Group('3', label=""), Group('4', label=""), Group(
+    '5', label=""), Group('6', label=""), Group('7', label=""), Group('8', label=""), Group('9', label="")]
 
 for i in groups:
     keys.extend(
