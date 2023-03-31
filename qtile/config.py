@@ -33,7 +33,7 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 from qtile_extras import widget
-from qtile_extras.widget.decorations import RectDecoration, BorderDecoration
+from qtile_extras.widget.decorations import RectDecoration, BorderDecoration, PowerLineDecoration
 
 mod = "mod4"
 terminal = 'alacritty'#guess_terminal()
@@ -139,29 +139,27 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="sans",
+    font="Open Sans",
     fontsize=12,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
 
-decoration_group = {
+powerline = {
     "decorations": [
-        RectDecoration(colour="#fe8d87", radius=12, filled=True, padding_x=5, padding_y=3, group=True)
-        # BorderDecoration(border_width=[0,0,2,0]) # return to default conf 
-    ],
-    #"padding": 10,
+        PowerLineDecoration(path='rounded_right')
+    ]
 }
 
 screens = [
     Screen(
-        wallpaper='/home/b4nq/Pictures/wallpapers/wired.jpg',
+        wallpaper='../wallpaper/wired.jpg',
         wallpaper_mode='stretch',
         top=bar.Bar(
             [
                 widget.GroupBox(highlight_method='text', block_highlight_text_color='#c6f0fa', fontsize=12, active='#f8f9fb', inactive='#969ea3'),
-                widget.Sep(foreground='#b3b3b3'),
-                widget.WindowTabs(),
+                widget.Sep(foreground='#f8f9fb'),
+                widget.WindowTabs(**powerline),
                 # widget.Chord(
                 #     chords_colors={
                 #         "launch": ("#ff0000", "#ffffff"),
@@ -169,11 +167,13 @@ screens = [
                 #     name_transform=lambda name: name.upper(),
                 # ),
                 # widget.Systray(),
-                widget.Sep(foreground='#b3b3b3'),
-                widget.OpenWeather(app_key='da014191ebff2ac1435cdc86d35a8a3e', cityid=3092639, format='{temp} {units_temperature}|{humidity}|{weather}'),
-                widget.Sep(foreground='#b3b3b3'),
-                widget.Clock(format="%d/%m/%Y %a %H:%M"),
-                widget.CurrentLayoutIcon(padding=5, scale=0.7),
+                #widget.Sep(foreground='#f8f9fb'),
+               
+                widget.OpenWeather(margin_x=5, app_key='da014191ebff2ac1435cdc86d35a8a3e', cityid=3092639, format='{temp} {units_temperature}', background='#0077b6', **powerline),
+                widget.OpenWeather(margin_x=5, app_key='da014191ebff2ac1435cdc86d35a8a3e', cityid=3092639, format='{weather}', background='#457b9d', **powerline),
+                #widget.Sep(foreground='#f8f9fb'),
+                widget.Clock(margin_x=5, format="%d:%m:%Y %a %H:%M", background='#0077b6', **powerline),
+                widget.CurrentLayout(margin_x=5, background='#457b9d'), # scaling=0.5 
                 
             ],
             30,
