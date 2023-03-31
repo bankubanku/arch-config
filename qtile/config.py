@@ -32,6 +32,8 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
+from qtile_extras import widget
+from qtile_extras.widget.decorations import RectDecoration, BorderDecoration
 
 mod = "mod4"
 terminal = 'alacritty'#guess_terminal()
@@ -143,15 +145,23 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+decoration_group = {
+    "decorations": [
+        RectDecoration(colour="#fe8d87", radius=12, filled=True, padding_x=5, padding_y=3, group=True)
+        # BorderDecoration(border_width=[0,0,2,0]) # return to default conf 
+    ],
+    #"padding": 10,
+}
+
 screens = [
     Screen(
         wallpaper='/home/b4nq/Pictures/wallpapers/wired.jpg',
         wallpaper_mode='stretch',
         top=bar.Bar(
             [
-                widget.GroupBox(borderwidth=2, inactive='#b3b3b3'),
+                widget.GroupBox(highlight_method='text', block_highlight_text_color='#c6f0fa', fontsize=12, active='#f8f9fb', inactive='#969ea3'),
                 widget.Sep(foreground='#b3b3b3'),
-                widget.WindowName(),
+                widget.WindowTabs(),
                 # widget.Chord(
                 #     chords_colors={
                 #         "launch": ("#ff0000", "#ffffff"),
@@ -166,8 +176,9 @@ screens = [
                 widget.CurrentLayoutIcon(padding=5, scale=0.7),
                 
             ],
-            24,
-            background='#333333',
+            30,
+            background='#123146',
+            # margin=[10, 10, 0, 10] # it makes the bar float 
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
