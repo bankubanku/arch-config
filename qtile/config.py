@@ -120,8 +120,18 @@ for i in groups:
         ]
     )
 
+# colors 
+base = '#24273a'
+blue = '#8aadf4'
+mauve = '#c6a0f6'
+text = '#cad3f5'
+subtext = '#8087a2'
+pink = '#f5bde6'
+flamingo = '#f0c6c6'
+red='#ed8796'
+
 layouts = [
-    layout.Columns(border_focus='#d9d9d9', border_normal='#404040',
+    layout.Columns(border_focus=mauve, border_normal=flamingo,
                    margin=10, fair=True, wrap_focus_stack=False),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
@@ -151,15 +161,17 @@ powerline = {
     ]
 }
 
+
+
 screens = [
     Screen(
-        wallpaper='../wallpaper/wired.jpg',
+        wallpaper='~/.config/wallpaper/wired.jpg',
         wallpaper_mode='stretch',
         top=bar.Bar(
             [
-                widget.GroupBox(highlight_method='text', block_highlight_text_color='#c6f0fa', fontsize=12, active='#f8f9fb', inactive='#969ea3'),
-                widget.Sep(foreground='#f8f9fb'),
-                widget.WindowTabs(**powerline),
+                widget.GroupBox(highlight_method='text', block_highlight_text_color='#c6f0fa', fontsize=12, active=flamingo, inactive=subtext),
+                widget.Sep(foreground=text),
+                widget.WindowTabs(foreground=text, **powerline),
                 # widget.Chord(
                 #     chords_colors={
                 #         "launch": ("#ff0000", "#ffffff"),
@@ -169,15 +181,15 @@ screens = [
                 # widget.Systray(),
                 #widget.Sep(foreground='#f8f9fb'),
                
-                widget.OpenWeather(margin_x=5, app_key='da014191ebff2ac1435cdc86d35a8a3e', cityid=3092639, format='{temp} {units_temperature}', background='#0077b6', **powerline),
-                widget.OpenWeather(margin_x=5, app_key='da014191ebff2ac1435cdc86d35a8a3e', cityid=3092639, format='{weather}', background='#457b9d', **powerline),
+                widget.OpenWeather(padding=10, app_key='da014191ebff2ac1435cdc86d35a8a3e', cityid=3092639, format='{temp} {units_temperature}', background=blue, **powerline),
+                widget.OpenWeather(padding=10, app_key='da014191ebff2ac1435cdc86d35a8a3e', cityid=3092639, format='{weather}', background=mauve, **powerline),
                 #widget.Sep(foreground='#f8f9fb'),
-                widget.Clock(margin_x=5, format="%d:%m:%Y %a %H:%M", background='#0077b6', **powerline),
-                widget.CurrentLayout(margin_x=5, background='#457b9d'), # scaling=0.5 
+                widget.Clock(padding=10, format="%d:%m:%Y %a %H:%M", background=blue, **powerline),
+                widget.CurrentLayout(padding=10, background=mauve), # scaling=0.5 
                 
             ],
             30,
-            background='#123146',
+            background=base,
             # margin=[10, 10, 0, 10] # it makes the bar float 
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
