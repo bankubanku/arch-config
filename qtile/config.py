@@ -84,8 +84,10 @@ keys = [
     # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 
     # My custom keybindigs
-    Key([mod], 'r', lazy.run_extension(extension.DmenuRun(background='#333333'))),
+    #Key([mod], 'r', lazy.run_extension(extension.DmenuRun(background='#333333'))),
     Key([], 'Print', lazy.spawn('flameshot gui')),
+    Key([mod], 'r', lazy.spawn('rofi -show drun')),
+    Key([mod], 'e', lazy.spawn('rofi -show window')),
     Key([mod], "t", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "l", lazy.spawn('betterlockscreen -l'), desc="Lock screen"),
     Key([mod], "b", lazy.spawn('librewolf'), desc='start librewolf')
