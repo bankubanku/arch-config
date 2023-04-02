@@ -8,7 +8,7 @@ Clone this repository
 ```bash
 git clone https://github.com/b4nq/wm-config.git 
 ```
-move to the cloned directory 
+change to the cloned repository
 ```bash
 cd wm-config
 ```
