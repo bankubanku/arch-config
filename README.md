@@ -12,7 +12,7 @@ change to the cloned repository
 ```bash
 cd wm-config
 ```
-Copy everything (except README.md and .git) to the ~/.config directory
+Copy files to the right directories
 ```bash
-rsync -av --progress * ~/.config/. --exclude README.md --exclude .git
+rsync -av --progress config/* ~/.config/. && rsync -a local/share/* ~/.local/share/. 
 ```
