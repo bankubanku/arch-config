@@ -15,11 +15,11 @@ yay -S qtile qtile-extras-git alacritty rofi picom
 ## Installation
 Clone this repository
 ```bash
-git clone https://github.com/b4nq/wm-config.git 
+git clone https://github.com/b4nq/system-config.git 
 ```
 change to the cloned repository
 ```bash
-cd wm-config
+cd system-config
 ```
 Copy files to the right directories
 ```bash
