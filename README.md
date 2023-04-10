@@ -11,8 +11,9 @@ I create this repository as a backup of my WM configuration and to share with pe
 - picom
 - ttf-font-awesome
 - ttf-opensans
+- vscode-codicons-git 
 ```bash
-yay -S qtile qtile-extras-git alacritty rofi picom ttf-font-awesome ttf-opensans
+yay -S qtile qtile-extras-git alacritty rofi picom ttf-font-awesome ttf-opensans vscode-codicons-git 
 ```
 ## Installation
 Clone this repository
