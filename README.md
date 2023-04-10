@@ -12,8 +12,9 @@ I create this repository as a backup of my WM configuration and to share with pe
 - ttf-font-awesome
 - ttf-opensans
 - vscode-codicons-git 
+- ttf-jetbrains-mono-nerd
 ```bash
-yay -S qtile qtile-extras-git alacritty rofi picom ttf-font-awesome ttf-opensans vscode-codicons-git 
+yay -S qtile qtile-extras-git alacritty rofi picom ttf-font-awesome ttf-opensans vscode-codicons-git ttf-jetbrains-mono-nerd
 ```
 ## Installation
 Clone this repository
