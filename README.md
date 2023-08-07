@@ -18,7 +18,7 @@ Odin is a collection of config files that make my experience on Arch Linux bette
 - vscode-codicons-git 
 - ttf-jetbrains-mono-nerd
 
-### to install all of these dependencies use command below
+### to install all of these dependencies use a command below
 ```bash
 yay -S qtile qtile-extras-git alacritty rofi picom ttf-font-awesome ttf-opensans vscode-codicons-git ttf-jetbrains-mono-nerd
 ```
