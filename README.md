@@ -1,4 +1,5 @@
-# odin - my system's configuration for Arch Linux
+# odin 
+# My system's configuration for Arch Linux
 I want to build a highly personalized environment for myself, and odin is constantly improving part of it. I share this repository to inspire other people into creating their own systems. 
 
 ![Screenshot showing wallpaper and UI without any apps opened](screenshots/ss2.png)
