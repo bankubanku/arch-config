@@ -183,8 +183,8 @@ screens = [
                 # widget.Systray(),
                 #widget.Sep(foreground='#f8f9fb'),
                
-                widget.OpenWeather(padding=10, app_key='da014191ebff2ac1435cdc86d35a8a3e', cityid=3092639, format='{temp} {units_temperature}', background=blue, **powerline),
-                widget.OpenWeather(padding=10, app_key='da014191ebff2ac1435cdc86d35a8a3e', cityid=3092639, format='{weather}', background=mauve, **powerline),
+                widget.OpenWeather(padding=10, app_key='app key provided by open wheather', cityid=cityid, format='{temp} {units_temperature}', background=blue, **powerline),
+                widget.OpenWeather(padding=10, app_key='app key provided by open wheather', cityid=cityid, format='{weather}', background=mauve, **powerline),
                 #widget.Sep(foreground='#f8f9fb'),
                 widget.Clock(padding=10, format="%d:%m:%Y %a %H:%M", background=blue, **powerline),
                 widget.CurrentLayout(padding=10, background=mauve), # scaling=0.5 
