@@ -174,27 +174,13 @@ screens = [
                 widget.GroupBox(highlight_method='text', block_highlight_text_color='#c6f0fa', fontsize=12, active=flamingo, inactive=subtext),
                 widget.Sep(foreground=text),
                 widget.WindowTabs(foreground=text, **powerline),
-                # widget.Chord(
-                #     chords_colors={
-                #         "launch": ("#ff0000", "#ffffff"),
-                #     },
-                #     name_transform=lambda name: name.upper(),
-                # ),
-                # widget.Systray(),
-                #widget.Sep(foreground='#f8f9fb'),
-               
-                widget.OpenWeather(padding=10, app_key='app key provided by open wheather', cityid=cityid, format='{temp} {units_temperature}', background=blue, **powerline),
-                widget.OpenWeather(padding=10, app_key='app key provided by open wheather', cityid=cityid, format='{weather}', background=mauve, **powerline),
-                #widget.Sep(foreground='#f8f9fb'),
                 widget.Clock(padding=10, format="%d:%m:%Y %a %H:%M", background=blue, **powerline),
                 widget.CurrentLayout(padding=10, background=mauve), # scaling=0.5 
                 
             ],
             30,
             background=base,
-            # margin=[10, 10, 0, 10] # it makes the bar float 
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+
         ),
     ),
 ]
