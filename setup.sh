@@ -22,23 +22,18 @@ fi
 
 echo "All official packages installed" 
 
-read -p "do you what yay on this machine?(y/n): " yay
-
-if [$yay == "y"]
-then 
-    sudo pacman -S --needed git base-devel
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
-    makepkg -si
-    cd ..
-    echo "yay built" 
-
-    echo "do you want to install software from aur? (y/n)"
-    read "software in question: betterlockscreen qtile-extras ungoogled-chromium-bin librewolf-bin vscode-codicons-git vscodium-bin" : aur 
-    
-    if [$aur == "y"]
-    then
-    yay -S betterlockscreen qtile-extras ungoogled-chromium-bin librewolf-bin vscode-codicons-git vscodium-bin 
-    echo "aur packages builded" 
-    fi 
+read -p "Do you want yay on this machine? (y/n): " yay
+if [ "$yay" == "y" ]; then
+  sudo pacman -S --needed git base-devel
+  git clone https://aur.archlinux.org/yay.git
+  cd yay
+  makepkg -si
+  cd ..
+  echo "yay built"
+  
+  read -p "Do you want to install software from AUR? (y/n): " aur
+  if [ "$aur" == "y" ]; then
+    yay -S betterlockscreen qtile-extras ungoogled-chromium-bin librewolf-bin vscode-codicons-git vscodium-bin
+    echo "aur packages built"
+  fi
 fi
