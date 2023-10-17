@@ -54,3 +54,6 @@ sudo systemctl enable lightdm
 
 # configuration 
 rsync -av --progress files/* ~/ 
+
+# rebooting 
+sudo reboot 
