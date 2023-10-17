@@ -9,7 +9,8 @@ read -p "are you using pc or laptop?: " machine
 
 if [$machine == "pc" or $machine == "PC"]; then 
     sudo pacman -S inkscape gimp 
-else; then
+else
+then
     echo "you sure?"
     which_machine
 fi
