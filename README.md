@@ -1,37 +1,67 @@
-# odin 
-I want to build a highly personalized environment for myself, and odin is constantly improving part of it. I share this repository to inspire other people into creating their own systems. 
+# arch-config 
+Configuration files and post-installation script that sets up arch linux system according to my needs. I develop this project based on my personal preferences.  
 
 ![Screenshot showing wallpaper and UI without any apps opened](screenshots/ss2.png)
 ![Screenshot showing to terminal emulators opened](screenshots/ss1.png)
 
-## description 
-Odin is a collection of config files that make my experience on Arch Linux better and interface prettier. I will develop this project based on my personal preferences.  
-
 ## dependencies
+### official repo
+- alacritty
+- bluez
+- bluez-utils
+- dmidecode
+- flameshot
+- htop
+- man-db
+- mpv
+- nano
+- nemo <- to replace
+- neofetch
+- obsidian
+- obs-studio 
+- pavucontrol <- to replace
 - qtile
-- qtile-extras-git 
-- alacritty 
 - rofi
-- picom
-- ttf-font-awesome
-- ttf-opensans
-- vscode-codicons-git 
+- rsync
+- signal-desktop
+- syncthing
 - ttf-jetbrains-mono-nerd
+- ufw
+- unzip
+- wget
+- zip
+- noto-fonts
+- noto-fonts-cjk
+- noto-fonts-emoji
+- noto-fonts-extra
+- intel-ucode/amd-ucode
+- virutalbox
+- inkscape 
+- gimp
 
-### to install all of these dependencies use a command below
-```bash
-yay -S qtile qtile-extras-git alacritty rofi picom ttf-font-awesome ttf-opensans vscode-codicons-git ttf-jetbrains-mono-nerd
-```
+### aur 
+- yay
+- betterlockscreen
+- ungoogled-chromium-bin
+- librewolf-bin
+- vscode-codicons-git
+- vscodium-git
+
+
 ## installation
 Clone this repository
 ```bash
-git clone https://github.com/bankubanku/odin.git 
+git clone https://github.com/bankubanku/arch-config.git 
 ```
 change to the cloned repository
 ```bash
-cd system-config
+cd arch-config
 ```
-Copy files to the right directories
+make setup.sh executable
 ```bash
-rsync -av --progress config/* ~/.config/. && rsync -a local/share/* ~/.local/share/. 
+chmod +x setup.sh
+```
+execute setup.sh
+```bash
+./setup.sh
 ```
