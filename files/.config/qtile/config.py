@@ -94,8 +94,8 @@ keys = [
     #Key([mod], 'o', lazy.run_extension(extension.WindowsList())),
 ]
 
-groups = [Group('1', label=""), Group('2', label="", exclusive=True, spawn="librewolf"), Group('3', label="", exclusive=True, spawn="alacritty"), Group('4', label=""), Group(
-    '5', label=""), Group('6', label=""), Group('7', label=""), Group('8', label=""), Group('9', label="", exclusive=True, spawn="obsidian")]
+groups = [Group('1', label=""), Group('2', label="", spawn="librewolf"), Group('3', label="", spawn="alacritty"), Group('4', label=""), Group(
+    '5', label=""), Group('6', label=""), Group('7', label=""), Group('8', label=""), Group('9', label="", spawn="obsidian")]
 
 for i in groups:
     keys.extend(
