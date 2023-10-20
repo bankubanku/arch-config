@@ -42,28 +42,28 @@ keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
-    Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "Down", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "Up", lazy.layout.up(), desc="Move focus up"),
+    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
+    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
+    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
+    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
     Key([mod], "space", lazy.layout.next(),
         desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
-    Key([mod, "shift"], "Left", lazy.layout.shuffle_left(),
+    Key([mod, "shift"], "h", lazy.layout.shuffle_left(),
         desc="Move window to the left"),
-    Key([mod, "shift"], "Right", lazy.layout.shuffle_right(),
+    Key([mod, "shift"], "l", lazy.layout.shuffle_right(),
         desc="Move window to the right"),
-    Key([mod, "shift"], "Down", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "Up", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
+    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    Key([mod, "control"], "Left", lazy.layout.grow_left(),
+    Key([mod, "control"], "h", lazy.layout.grow_left(),
         desc="Grow window to the left"),
-    Key([mod, "control"], "Right", lazy.layout.grow_right(),
+    Key([mod, "control"], "l", lazy.layout.grow_right(),
         desc="Grow window to the right"),
-    Key([mod, "control"], "Down", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "Up", lazy.layout.grow_up(), desc="Grow window up"),
+    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
+    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
@@ -89,13 +89,13 @@ keys = [
     Key([mod], 'r', lazy.spawn('rofi -show drun')),
     Key([mod], 'e', lazy.spawn('rofi -show window')),
     Key([mod], "t", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod], "l", lazy.spawn('betterlockscreen -l'), desc="Lock screen"),
-    Key([mod], "b", lazy.spawn('librewolf'), desc='start librewolf')
+    Key([mod], "comma", lazy.spawn('betterlockscreen -l'), desc="Lock screen"),
+    Key([mod], 'period', lazy.next_screen(), desc='Next monitor'),
     #Key([mod], 'o', lazy.run_extension(extension.WindowsList())),
 ]
 
-groups = [Group('1', label=""), Group('2', label=""), Group('3', label=""), Group('4', label=""), Group(
-    '5', label=""), Group('6', label=""), Group('7', label=""), Group('8', label=""), Group('9', label="")]
+groups = [Group('1', label=""), Group('2', label="", exclusive=True, spawn="librewolf"), Group('3', label="", exclusive=True, spawn="alacritty"), Group('4', label=""), Group(
+    '5', label=""), Group('6', label=""), Group('7', label=""), Group('8', label=""), Group('9', label="", exclusive=True, spawn="obsidian")]
 
 for i in groups:
     keys.extend(
@@ -133,7 +133,7 @@ flamingo = '#f0c6c6'
 red='#ed8796'
 
 layouts = [
-    layout.Columns(border_focus=mauve, border_normal=flamingo,
+    layout.Columns(border_focus=mauve, border_normal=flamingo, border_on_single=True, border_width=3,  
                    margin=10, fair=True, wrap_focus_stack=False),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
@@ -173,6 +173,23 @@ screens = [
             [
                 widget.GroupBox(highlight_method='text', block_highlight_text_color='#c6f0fa', fontsize=12, active=flamingo, inactive=subtext),
                 widget.Sep(foreground=text),
+                widget.WindowTabs(foreground=text, **powerline),
+                widget.Clock(padding=10, format="%d:%m:%Y %a %H:%M", background=blue, **powerline),
+                widget.CurrentLayout(padding=10, background=mauve), # scaling=0.5 
+                
+            ],
+            30,
+            background=base,
+
+        ),
+    ),
+    Screen(
+        wallpaper='~/.config/wallpaper/wired.jpg',
+        wallpaper_mode='stretch',
+        top=bar.Bar(
+            [
+                #widget.GroupBox(highlight_method='text', block_highlight_text_color='#c6f0fa', fontsize=12, active=flamingo, inactive=subtext),
+                #widget.Sep(foreground=text),
                 widget.WindowTabs(foreground=text, **powerline),
                 widget.Clock(padding=10, format="%d:%m:%Y %a %H:%M", background=blue, **powerline),
                 widget.CurrentLayout(padding=10, background=mauve), # scaling=0.5 
@@ -233,7 +250,7 @@ wl_input_rules = None
 wmname = "LG3D"
 
 
-@hook.subscribe.startup
-def autostart():
-    home = os.path.expanduser('~/.config/scripts/autostart.sh')
-    subprocess.Popen([home])
+# @hook.subscribe.startup
+# def autostart():
+#     home = os.path.expanduser('~/.config/scripts/autostart.sh')
+#     subprocess.Popen([home])
