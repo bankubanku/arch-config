@@ -76,6 +76,7 @@ installing_yay
 
 # enabling what is to enable
 sudo systemctl enable lightdm
+sudo systemctl enable bluetooth
 
 # configuration
 rsync -av --progress files/.* ~/.
