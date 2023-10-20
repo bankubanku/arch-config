@@ -10,7 +10,7 @@ which_machine() {
 
     if [ "$machine" == "pc" ] || [ "$machine" == "PC" ]; then
         sudo pacman -S inkscape gimp
-    elif [ "$machine" == "laptop" ; then 
+    elif [ "$machine" == "laptop" ] ; then 
         echo "nothing additional needed for laptop" 
     else
         echo "you sure?"
