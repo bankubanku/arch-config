@@ -2,7 +2,7 @@
 
 # installing official packages that I use
 sudo pacman -Syyu
-sudo pacman -S rsync vim alacritty bluez bluez-utils dmidecode flameshot man-db mpv nano nemo neofetch obsidian obs-studio qtile rofi signal-desktop syncthing ttf-jetbrains-mono-nerd ufw unzip wget zip noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra virtualbox lightdm lightdm-gtk-greeter pipewire pipewire-audio pipewire-alsa pipewire-pulse
+sudo pacman -S rsync vim alacritty bluez bluez-utils dmidecode flameshot man-db mpv nano nemo neofetch obsidian obs-studio pavucontrol qtile rofi signal-desktop syncthing ttf-jetbrains-mono-nerd ufw unzip wget zip noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra virtualbox lightdm  lightdm-gtk-greeter pipewire pipewire-audio pipewire-alsa pipewire-pulse
 
 # entry questions to know what to install
 which_machine() {
