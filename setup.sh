@@ -43,6 +43,7 @@ installing_yay() {
         cd yay
         makepkg -si
         cd ..
+	rm -rf yay
         echo "yay built"
 
         installing_aur
@@ -79,7 +80,8 @@ sudo systemctl enable lightdm
 sudo systemctl enable bluetooth
 
 # configuration
-rsync -av --progress files/.* ~/.
+rsync -av --progress files/.local ~/.
+rsync -av --progress files/.config ~/.
 
 # rebooting
 sudo reboot
