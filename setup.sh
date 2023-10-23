@@ -2,7 +2,7 @@
 
 # installing official packages that I use
 sudo pacman -Syyu
-sudo pacman -S rsync vim alacritty bluez bluez-utils dmidecode flameshot man-db mpv nano nemo neofetch obsidian obs-studio pavucontrol qtile rofi signal-desktop syncthing ttf-jetbrains-mono-nerd ufw unzip wget zip noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra virtualbox lightdm  lightdm-gtk-greeter pipewire pipewire-audio pipewire-alsa pipewire-pulse
+sudo pacman -S rsync vim alacritty bluez bluez-utils dmidecode flameshot man-db mpv nano nemo neofetch obsidian obs-studio pavucontrol qtile rofi signal-desktop syncthing ttf-jetbrains-mono-nerd ufw unzip wget zip noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra virtualbox lightdm lightdm-gtk-greeter pipewire pipewire-audio pipewire-alsa pipewire-pulse
 
 # entry questions to know what to install
 which_machine() {
@@ -10,8 +10,8 @@ which_machine() {
 
     if [ "$machine" == "pc" ] || [ "$machine" == "PC" ]; then
         sudo pacman -S inkscape gimp
-    elif [ "$machine" == "laptop" ] ; then 
-        echo "nothing additional needed for laptop" 
+    elif [ "$machine" == "laptop" ]; then
+        echo "nothing additional needed for laptop"
     else
         echo "you sure?"
         which_machine
@@ -43,7 +43,7 @@ installing_yay() {
         cd yay
         makepkg -si
         cd ..
-	rm -rf yay
+        rm -rf yay
         echo "yay built"
 
         installing_aur
@@ -80,8 +80,13 @@ sudo systemctl enable lightdm
 sudo systemctl enable bluetooth
 
 # configuration
-rsync -av --progress files/.local ~/.
-rsync -av --progress files/.config ~/.
+if [ "$machine" == "pc" ] || [ "$machine" == "PC" ]; then
+    rsync -av --progress files/desktop/.local ~/.
+    rsync -av --progress files/desktop/.config ~/.
+elif [ "$machine" == "laptop" ]; then
+    rsync -av --progress files/laptop/.local ~/.
+    rsync -av --progress files/laptop/.config ~/.
+fi
 
 # rebooting
 sudo reboot
