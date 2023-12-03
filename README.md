@@ -2,7 +2,7 @@
 Configuration files and post-installation script that sets up arch linux system according to my needs. I develop this project based on my personal preferences.  
 
 ![Screenshot showing wallpaper and UI without any apps opened](screenshots/ss2.png)
-![Screenshot showing to terminal emulators opened](screenshots/ss1.png)
+![Screenshot showing two terminal emulators opened](screenshots/ss1.png)
 
 ## dependencies
 ### official repo
